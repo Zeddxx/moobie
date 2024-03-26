@@ -1,15 +1,15 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
-import { ISlider } from "@/types";
 import { Button, buttonVariants } from "./ui/button";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
 import ReactSimplyCarousel from "react-simply-carousel";
 import Link from "next/link";
+import { CarouselSliderTypes } from "@/types";
 
 type MovieCarouselProps = {
-  items: (ISlider | null)[];
+  items: CarouselSliderTypes[]
 };
 
 export const MovieCarousel = ({ items }: MovieCarouselProps) => {
@@ -68,26 +68,18 @@ export const MovieCarousel = ({ items }: MovieCarouselProps) => {
           key={item?.title}
         >
           <div className="absolute leading-relaxed max-w-[75%] bottom-6 left-6 z-20">
-            <h1 className="text-5xl font-semibold">{item?.title}</h1>
-            <p>{item?.description}</p>
-            
-            <div className="flex gap-x-3">
-              <p>{item?.detail.quality}</p>
-              <p>{item?.detail.imdb}</p>
-              <p>{item?.detail.duration}</p>
-            </div>
-
+            <h1 className="text-[clamp(1.3rem,8vw,4rem)] font-semibold line-clamp-1 text-pretty font-logo">{item?.title}</h1>
             <Button>
-              <Link href={`/${item?.id}`}>
+              <Link href={`/${item?.dramaId}`}>
                 Watch Now
               </Link>
             </Button>
           </div>
-          <div className="absolute w-full right-0 top-0 before:h-full before:w-[60%] before:bg-gradient-to-r before:from-white before:to-transparent before:absolute">
+          <div className="absolute w-full right-0 top-0 h-full before:h-full before:w-[60%] before:bg-gradient-to-r before:from-white before:to-transparent before:absolute">
             <img
               draggable={false}
-              src={item?.image}
-              alt={item?.title}
+              src={item.imageSrc}
+              alt={item.title}
               className="h-full w-full object-cover"
             />
           </div>
@@ -95,8 +87,4 @@ export const MovieCarousel = ({ items }: MovieCarouselProps) => {
       ))}
     </ReactSimplyCarousel>
   );
-};
-
-const CustomNextButton = () => {
-  return <button className="z-[999]">Next</button>;
 };

@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.0.2",
+    "@tailwindcss/line-clamp": "^0.4.4",
+    "axios": "^1.6.8",
     "better-react-carousel": "^1.1.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
