@@ -7,6 +7,7 @@ import { useState } from "react";
 import ReactSimplyCarousel from "react-simply-carousel";
 import Link from "next/link";
 import { CarouselSliderTypes } from "@/types";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 type MovieCarouselProps = {
   items: CarouselSliderTypes[]
@@ -27,19 +28,6 @@ export const MovieCarousel = ({ items }: MovieCarouselProps) => {
       swipeTreshold={100}
       forwardBtnProps={{
         //here you can also pass className, or any other button element attributes
-        className: "absolute z-10 right-4 bottom-16",
-        children: (
-          <span
-            className={cn(
-              buttonVariants({ variant: "secondary", size: "icon" })
-            )}
-          >
-            next
-          </span>
-        ),
-      }}
-      backwardBtnProps={{
-        //here you can also pass className, or any other button element attributes
         className: "absolute z-10 right-4 bottom-4",
         children: (
           <span
@@ -47,7 +35,20 @@ export const MovieCarousel = ({ items }: MovieCarouselProps) => {
               buttonVariants({ variant: "secondary", size: "icon" })
             )}
           >
-            prev
+            <ChevronRight />
+          </span>
+        ),
+      }}
+      backwardBtnProps={{
+        //here you can also pass className, or any other button element attributes
+        className: "absolute z-10 right-16 bottom-4",
+        children: (
+          <span
+            className={cn(
+              buttonVariants({ variant: "secondary", size: "icon" })
+            )}
+          >
+            <ChevronLeft />
           </span>
         ),
       }}
@@ -68,10 +69,10 @@ export const MovieCarousel = ({ items }: MovieCarouselProps) => {
           key={item?.title}
         >
           <div className="absolute leading-relaxed max-w-[75%] bottom-6 left-6 z-20">
-            <h1 className="text-[clamp(1.3rem,8vw,4rem)] font-semibold line-clamp-1 text-pretty font-logo">{item?.title}</h1>
+            <h1 className="text-[clamp(1.3rem,6vw,4rem)] font-semibold line-clamp-1 xl:line-clamp-2 text-pretty font-logo">{item?.title}</h1>
             <Button>
-              <Link href={`/${item?.dramaId}`}>
-                Watch Now
+              <Link href={`/${item?.dramaId}`} className="line-clamp-1 flex items-center">
+                Watch Now <span className="sm:max-w-[16rem] max-w-[12rem] truncate block ml-1">{item.title}</span>
               </Link>
             </Button>
           </div>

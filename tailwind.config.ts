@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import plugin from "tailwindcss/plugin"
 
 const config = {
   darkMode: ["class"],
@@ -77,7 +78,18 @@ const config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+    plugin(function ({ addBase, addComponents }) {
+      addBase({});
+      addComponents({
+        ".h3" : {
+          "@apply font-logo text-[clamp(1.4rem,8vw,2rem)]":
+          {},
+        }
+      })
+    })
+  ],
 } satisfies Config;
 
 export default config;

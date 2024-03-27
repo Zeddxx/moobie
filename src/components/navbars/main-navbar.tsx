@@ -8,7 +8,7 @@ const MainNavbar = () => {
     <nav className="h-auto border-b sticky top-0 z-[99999] bg-secondary">
       <MainWrapper className="flex items-center w-full justify-between px-4 h-16">
         <div className="flex items-center ">
-          <Link href="/">
+          <Link href="/home">
             <Icons.moobieIcon className="h-8 w-8 cursor-pointer" />
           </Link>
           <span className="font-logo text-3xl font-semibold hidden sm:block mb-2 leading-none ml-1">
