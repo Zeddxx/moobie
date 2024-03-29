@@ -20,4 +20,22 @@
     Open for new ideas. 🫡
   </pre>
 </div>
-<hr/>
+
+## Workflow of moobie.
+There is a backend which is scraping a website for the desired details the most of the complexity is working behind the UI. As backend is merged with consumet to get streaming links and show it to user.
+
+- Backend
+  - Scrapping a website to get desired details such as image source, title, etc.
+  - Collecting it into an array of objects.
+  - Created a route which returns those details.
+  - Creation of backend was a new experience for me but it felt kind of easy not totally.
+  - The main thing which gave problem to me was on deployment 😅.
+  
+- Frontend
+  - Yellow theming as i am not a great ui designer but still made it look aesthetic and clean with all screen responsivness.
+  - A Good looking landing page for the new user to get a brief why i created moobie.
+  - I personally loves to add the toggle theming from `dark` to `light` still default will be `system`.
+  - I Mostly used SSR which clearly hides the api calls in network section. somehow i loved this.
+
+> [!IMPORTANT]
+> I am not sure if you should clone it or not as it uses the scrapper created by me. but still if you are into learning how UI/UX is working then go for it.
