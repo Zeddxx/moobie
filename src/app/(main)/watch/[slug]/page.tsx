@@ -22,7 +22,7 @@ const WatchPage = async ({ params, searchParams }: Props) => {
   const drama = searchParams.drama as string;
   const dramaId = drama.replace("drama-detail/", "");
   const data = await getDramaStreaming(slug, dramaId);
-  const info = await getDramaInfo(dramaId);
+  const info = await getDramaInfo(drama);
 
   return (
     <div className="px-4">

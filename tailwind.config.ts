@@ -86,6 +86,10 @@ const config = {
         ".h3" : {
           "@apply font-logo text-[clamp(1.4rem,8vw,2rem)]":
           {},
+        },
+        ".h2": {
+          "@apply font-logo text-[clamp(2rem,8vw,3.4rem)]":
+          {},
         }
       })
     })

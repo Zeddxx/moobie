@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import MainNavbar from "@/components/navbars/main-navbar";
 import Footer from "@/components/footer";
+import ThemeProvider from "@/providers/theme-provider";
 
 const inter = Inter({ subsets: ["latin"] });
 const logoFont = localFont({
@@ -36,14 +37,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${inter.className} ${logoFont.variable}`}>
-        <MainNavbar />
-        <main className="min-h-[calc(100dvh-80px)]">{children}</main>
-
-        <footer>
-          <Footer />
-        </footer>
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${inter.className} ${logoFont.variable} antialiased`}>
+        <ThemeProvider>
+          <MainNavbar />
+          <main className="min-h-[calc(100dvh-80px)] h-full">{children}</main>
+          <footer>
+            <Footer />
+          </footer>
+        </ThemeProvider>
       </body>
     </html>
   );

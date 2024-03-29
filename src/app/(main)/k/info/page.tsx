@@ -7,25 +7,30 @@ import { getDramaInfo } from "@/lib/movies";
 import Link from "next/link";
 
 type Props = {
-  params: { slug: string };
+  searchParams: {[key: string]: string | string[] | undefined }
 };
 
-const DramaInfoPage = async ({ params }: Props) => {
-  const { slug } = params;
-  const data = await getDramaInfo(slug);
+// /k/info?drama=dramaId
+const DramaInfoPage = async ({ searchParams }: Props) => {
+  const dramaId = searchParams.drama as string;
+
+  const data = await getDramaInfo(dramaId);
 
   return (
     <section>
       <MainWrapper>
         <div className="h-[60vw] max-h-80 relative overflow-hidden before:h-[85%] before:w-full before:absolute before:bg-muted min-h-64 w-full">
           <div className="left-0 absolute leading-none w-full">
-            <p className="text-[clamp(6rem,8vw,8rem)] text-nowrap text-white dark:text-black font-logo">
+            <p className="text-[clamp(6rem,8vw,8rem)] text-nowrap text-white dark:text-[#121212] font-logo">
+              {data?.title}{" "}
               {data?.title}
             </p>
-            <p className="text-[clamp(6rem,8vw,8rem)] translate-x-40 text-nowrap text-white dark:text-black font-logo">
+            <p className="text-[clamp(6rem,8vw,8rem)] translate-x-40 text-nowrap text-white dark:text-[#121212] font-logo">
+              {data?.title}{" "}
               {data?.title}
             </p>
-            <p className="text-[clamp(6rem,8vw,8rem)] text-nowrap text-white dark:text-black font-logo">
+            <p className="text-[clamp(6rem,8vw,8rem)] text-nowrap text-white dark:text-[#121212] font-logo">
+              {data?.title}{" "}
               {data?.title}
             </p>
           </div>
@@ -42,7 +47,7 @@ const DramaInfoPage = async ({ params }: Props) => {
             <Badge>Release: {data?.releaseDate}</Badge>
           </div>
           <h1 className="font-logo text-[clamp(1.4rem,8vw,3rem)]">
-            {data?.title}
+            {data?.title}{" "}
           </h1>
           <div className="text-muted-foreground my-3">
             <p className="md:line-clamp-none line-clamp-3">

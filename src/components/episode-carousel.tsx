@@ -31,7 +31,7 @@ const EpisodeCarousel = ({ episodes, image, dramaId }: Props) => {
               alt={episode.title}
               className="h-full w-full object-cover"
             />
-            <span className="absolute bottom-0 h-44 w-full left-0 bg-gradient-to-t from-white via-transparent to-transparent"></span>
+            <span className="absolute bottom-0 h-44 w-full left-0 bg-gradient-to-t from-white dark:from-black via-transparent to-transparent"></span>
           </Link>
         ))}
       </div>

@@ -15,9 +15,11 @@ export type DramaInfoTypes = {
   };
   
   export type CarouselSliderTypes = {
+    id: string
     dramaId: string;
     imageSrc: string;
     title: string;
+    poster: string
   };
 
   export type RecentDramaProps = {
@@ -27,6 +29,12 @@ export type DramaInfoTypes = {
     time: string
     episode: string
     poster: string
+  }
+
+  export type GenerateMetadataProps = {
+    description: string
+    title: string
+    opengraphImage?: string
   }
   
   export type HomeContentTypes = {
@@ -50,4 +58,18 @@ export type DramaInfoTypes = {
         isM3U8: boolean
       }
     ]
+  }
+
+  export type Results = {
+    id: string
+    title: string
+    url: string
+    image: string
+  }
+
+  export type SearchedDrama = {
+    currentPage: string
+    totalPages: number
+    hasNextPage: boolean
+    results: Results[]
   }
