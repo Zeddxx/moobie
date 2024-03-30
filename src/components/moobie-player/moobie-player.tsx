@@ -77,7 +77,7 @@ const MoobiePlayer = ({ episodeUrl, poster }: VideoPlayerProps) => {
   return (
     <Player
       option={options}
-      className="art-container xl:order-none order-first flex-shrink-0 aspect-video xl:max-w-4xl w-full"
+      className="art-container xl:order-none order-first z-10 flex-shrink-0 aspect-video xl:max-w-4xl w-full"
     />
   );
 };

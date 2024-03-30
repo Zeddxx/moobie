@@ -27,7 +27,11 @@ export const getHomePage = async () => {
 export const getDramaInfo = async (dramaId: string) => {
   try {
     const response = await fetch(
-      `${url}/moobie/drama-info/info?id=${dramaId}`);
+      `${url}/moobie/drama-info/info?id=${dramaId}`,
+      {
+        cache: "no-store",
+      }
+    );
     const data = await response.json();
     return data as DramaInfoTypes;
   } catch (error) {
@@ -39,7 +43,8 @@ export const getDramaStreaming = async (episodeId: string, dramaId: string) => {
   try {
     if (!episodeId && !dramaId) return;
     const response = await fetch(
-      `${url}/moobie/watch-drama/${episodeId}/${dramaId}`);
+      `${url}/moobie/watch-drama/${episodeId}/${dramaId}`
+    );
     const data = await response.json();
     return data as StreamingEpisodeProps;
   } catch (error) {
@@ -54,11 +59,13 @@ export const getDramaStreaming = async (episodeId: string, dramaId: string) => {
  * @returns Searched items with currentPage, totalPages, hasNextPage, results: Results[]
  */
 export const getSearchedDrama = async (query: string, pageNumber?: number) => {
-  if(!query) throw Error;
+  if (!query) throw Error;
 
   const page = pageNumber ? pageNumber : 1;
 
-  const response = await fetch(`${url}/moobie/search?query=${query}&page=${page}`)
+  const response = await fetch(
+    `${url}/moobie/search?query=${query}&page=${page}`
+  );
   const data = await response.json();
   return data as SearchedDrama;
-}
+};

@@ -11,11 +11,46 @@ import {
 } from "@/components/ui/breadcrumb";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import { Metadata, ResolvingMetadata } from "next";
 
 export type Props = {
   params: { slug: string };
   searchParams: { [key: string]: string | string[] | undefined };
 };
+
+export async function generateMetadata(
+  { params, searchParams }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  try {
+    const { slug } = params;
+    const dramaId = searchParams.drama as string;
+    const dramaInfo = await getDramaInfo(dramaId);
+
+    if (!dramaInfo) throw new Error("Drama info is null");
+
+    const { title: dramaTitle, episodes, image, description } = dramaInfo;
+    const currentEpisodeTitle = episodes.find((ep) => ep.id === slug)?.title.replace("Episode", "");
+
+    const title = `Watching ${dramaTitle} | Episode ${currentEpisodeTitle} on moobie.`;
+
+    return {
+      title,
+      description: `Watching episode ${currentEpisodeTitle} from ${dramaTitle}. ${
+        description
+      }`,
+      openGraph: {
+        images: [image],
+      },
+    };
+  } catch (error) {
+    const { title, description } = await parent;
+    return {
+      title,
+      description,
+    };
+  }
+}
 
 const WatchPage = async ({ params, searchParams }: Props) => {
   const { slug } = params;
@@ -48,7 +83,7 @@ const WatchPage = async ({ params, searchParams }: Props) => {
         </BreadcrumbList>
       </Breadcrumb>
       <div className="flex xl:flex-row flex-col gap-4 my-4 w-full">
-        <aside className="xl:max-w-[13rem] w-full flex-shrink-0 xl:max-h-[32rem] max-h-56 overflow-y-auto ">
+        <aside className="xl:max-w-[14rem] w-full flex-shrink-0 xl:max-h-[32rem] max-h-56 overflow-y-auto ">
           <div className="sticky top-0 w-full py-2 bg-muted px-2 border-b">
             <p className="font-logo text-lg">Episodes</p>
           </div>
@@ -59,7 +94,8 @@ const WatchPage = async ({ params, searchParams }: Props) => {
                   href={`/watch/${episode.id}?drama=${drama}`}
                   className={cn(
                     "w-full py-2 px-2 text-muted-foreground text-sm",
-                    episode.id === slug && "text-black bg-primary/40"
+                    episode.id === slug &&
+                      "text-black dark:text-white bg-primary/40"
                   )}
                 >
                   {episode.title}

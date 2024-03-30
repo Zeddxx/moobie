@@ -84,7 +84,7 @@ const config = {
       addBase({});
       addComponents({
         ".h3" : {
-          "@apply font-logo text-[clamp(1.4rem,8vw,2rem)]":
+          "@apply font-logo text-[clamp(1.6rem,5vw,2rem)]":
           {},
         },
         ".h2": {

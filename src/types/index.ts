@@ -36,10 +36,20 @@ export type DramaInfoTypes = {
     title: string
     opengraphImage?: string
   }
+
+  export type RecentMoviesTypes = {
+    id: string
+    title: string
+    time: string
+    type: string
+    poster: string
+    episode: string
+  }
   
   export type HomeContentTypes = {
     carouselSlider: CarouselSliderTypes[]
     recentDrama: RecentDramaProps[]
+    recentMovies: RecentMoviesTypes[]
   }
 
   export type DramaInfo = {

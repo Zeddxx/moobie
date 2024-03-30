@@ -13,7 +13,8 @@ const Skeleton = ({ className }: { className: string }) => {
       baseColor={theme === "dark" ? "#202020" : "#ebebeb"}
       highlightColor={theme === "dark" ? "#444" : "#f5f5f5"}
     >
-      <ReactSkeleton className={cn(className, "dar")} />
+      <ReactSkeleton
+      className={cn(className, "dar")} />
     </SkeletonTheme>
   );
 };

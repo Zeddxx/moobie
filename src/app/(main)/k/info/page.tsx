@@ -1,14 +1,42 @@
 /* eslint-disable @next/next/no-img-element */
 import MainWrapper from "@/components/containers/main-wrapper";
 import EpisodeCarousel from "@/components/episode-carousel";
+import Description from "@/components/shared/description";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { getDramaInfo } from "@/lib/movies";
+import { Metadata, ResolvingMetadata } from "next";
 import Link from "next/link";
 
 type Props = {
-  searchParams: {[key: string]: string | string[] | undefined }
+  searchParams: { [key: string]: string | string[] | undefined };
 };
+
+export async function generateMetadata(
+  { searchParams }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  try {
+    const dramaId = searchParams.drama as string;
+    const info = await getDramaInfo(dramaId);
+
+    if (!info) throw new Error("Drama info not found");
+    const { description, title, image } = info;
+    return {
+      title: `${title} | Moobie Info`,
+      description,
+      openGraph: {
+        images: [image],
+      },
+    };
+  } catch (error) {
+    const { title, description } = await parent;
+    return {
+      title,
+      description,
+    };
+  }
+}
 
 // /k/info?drama=dramaId
 const DramaInfoPage = async ({ searchParams }: Props) => {
@@ -19,19 +47,16 @@ const DramaInfoPage = async ({ searchParams }: Props) => {
   return (
     <section>
       <MainWrapper>
-        <div className="h-[60vw] max-h-80 relative overflow-hidden before:h-[85%] before:w-full before:absolute before:bg-muted min-h-64 w-full">
+        <div className="h-[60vw] max-h-80 relative overflow-hidden before:h-[85%] before:w-full before:absolute before:bg-muted min-h-80 w-full">
           <div className="left-0 absolute leading-none w-full">
             <p className="text-[clamp(6rem,8vw,8rem)] text-nowrap text-white dark:text-[#121212] font-logo">
-              {data?.title}{" "}
-              {data?.title}
+              {data?.title} {data?.title}
             </p>
             <p className="text-[clamp(6rem,8vw,8rem)] translate-x-40 text-nowrap text-white dark:text-[#121212] font-logo">
-              {data?.title}{" "}
-              {data?.title}
+              {data?.title} {data?.title}
             </p>
             <p className="text-[clamp(6rem,8vw,8rem)] text-nowrap text-white dark:text-[#121212] font-logo">
-              {data?.title}{" "}
-              {data?.title}
+              {data?.title} {data?.title}
             </p>
           </div>
           <div className="aspect-[9/13] bg-muted-foreground absolute bottom-0 left-4 w-48 rounded-md overflow-hidden">
@@ -50,14 +75,14 @@ const DramaInfoPage = async ({ searchParams }: Props) => {
             {data?.title}{" "}
           </h1>
           <div className="text-muted-foreground my-3">
-            <p className="md:line-clamp-none line-clamp-3">
-              {data?.description}
-            </p>
-            <span className="md:hidden block">more</span>
+            <Description description={data?.description!} />
           </div>
           <Button className="font-logo mt-2 sm:max-w-sm w-full">
             {!!data && data.episodes.length > 0 ? (
-              <Link href={`/watch/${data?.episodes[0]?.id}?drama=${data?.id}`}>
+              <Link
+                href={`/watch/${data?.episodes[0]?.id}?drama=${data?.id}`}
+                className="truncate"
+              >
                 Watch {data?.title}
               </Link>
             ) : (

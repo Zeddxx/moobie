@@ -15,7 +15,7 @@ export default function loading() {
               {Array.from({ length: 13 }).map((_, index) => (
                 <Skeleton
                   key={index}
-                  className="aspect-[9/13] rounded-lg overflow-hidden relative h-full flex-shrink-0 md:w-56 w-48"
+                  className="aspect-[9/13] rounded-lg overflow-hidden relative h-72 flex-shrink-0 md:w-56 w-48"
                 />
               ))}
             </div>
