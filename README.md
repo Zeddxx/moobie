@@ -37,5 +37,59 @@ There is a backend which is scraping a website for the desired details the most 
   - I personally loves to add the toggle theming from `dark` to `light` still default will be `system`.
   - I Mostly used SSR which clearly hides the api calls in network section. somehow i loved this.
 
+
+## Installation.
 > [!IMPORTANT]
 > I am not sure if you should clone it or not as it uses the scrapper created by me. but still if you are into learning how UI/UX is working then go for it.
+
+- Clone the moobie repo through terminal.
+
+  ```bash
+  git clone https://github.com/Zeddxx/moobie.git
+  ```
+
+- Get into the folder.
+  
+   ```bash
+   cd moobie
+   ```
+
+- Install the required dependencies.
+  ```bash
+  npm install or yard add
+  ```
+
+- Run the project.
+  ```bash
+  npm run dev
+  ```
+
+## TODO
+<pre>Feature that i have yet to implement.</pre>
+
+- [x] Beautiful landing or marketing page.
+- [ ] Navbar
+  - [x] Theme selector.
+  - [x] Search functionality.
+  - [ ] Resposive hamburger.
+     - As currently there is not much pages due to which i have not yet made it work.
+- [ ] Skeleton loader.
+  - [x] Skeleton loader for home page.
+  - [x] Loader for info page.
+  - [ ] Loader for Watch page.
+  - [ ] Loader for search page.
+- [ ] Authentication.
+- [x] SEO implementation.
+- [ ] Moobie player.
+  - [x] Add desired theme UI.
+  - [ ] Next and Previous button to navigate episodes.
+  - [ ] Add the datails into currently watching.
+
+
+## Have an issue?
+
+Error may can arise if it does so please do open an issue <a href="https://github.com/Zeddxx/moobie/issues" title="moobie issue">here.</a> I will probably get in touch within 5 - 6hrs.
+
+## Future plans
+
+After completing this project i will dive into my last project that is in my mind so if you guys do have any idea and want to create something together then do count me in. If i get busy in future i will make this repo an open source so its upto you guys to maintain it 🥺.
