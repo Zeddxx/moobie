@@ -14,7 +14,7 @@
     Why I created Moobie? 🤓
   </h2>
   <p>
-    My main motive was to learn server side rendering in NextJs and how it is different from client side rendering. Creating a clean UI/UX web application is my hobbie and what i wanted was to provide the content to user without any annoying ads and popups.
+    My main motive was to learn server-side rendering in Next.js and how it differs from client-side rendering. Creating a clean UI/UX web application is my hobby, and what I wanted was to provide content to users without any annoying ads and pop-ups.
   </p>
   <pre>
     Open for new ideas. 🫡
@@ -22,25 +22,24 @@
 </div>
 
 ## Workflow of moobie.
-There is a backend which is scraping a website for the desired details the most of the complexity is working behind the UI. As backend is merged with consumet to get streaming links and show it to user.
-
+There is a backend that is scraping a website for the desired details; most of the complexity is working behind the UI. The backend is merged with a consumetApi to retrieve streaming links and show them to the user.
 - Backend
-  - Scrapping a website to get desired details such as image source, title, etc.
-  - Collecting it into an array of objects.
-  - Created a route which returns those details.
-  - Creation of backend was a new experience for me but it felt kind of easy not totally.
-  - The main thing which gave problem to me was on deployment 😅.
+  - Scraping a website to retrieve desired details such as image source, title, etc.
+  - Collecting them into an array of objects.
+  - Creating a route that returns those details.
+  - Creating the backend was a new experience for me, but it felt kind of easy, though not entirely.
+  - The main issue I encountered was during deployment 😅.
   
 - Frontend
-  - Yellow theming as i am not a great ui designer but still made it look aesthetic and clean with all screen responsivness.
-  - A Good looking landing page for the new user to get a brief why i created moobie.
-  - I personally loves to add the toggle theming from `dark` to `light` still default will be `system`.
-  - I Mostly used SSR which clearly hides the api calls in network section. somehow i loved this.
+  - Yellow theming, as I am not a great UI designer, but I still managed to make it look aesthetic and clean with full screen responsiveness.
+  - A good-looking landing page for new users to understand briefly why I created Moobie.
+  - I personally love to add the toggle theming from `dark` to `light`, with the default being `system`.
+  - I mostly used SSR, which conveniently hides the API calls in the network section. Somehow, I loved this.
 
 
 ## Installation.
 > [!IMPORTANT]
-> I am not sure if you should clone it or not as it uses the scrapper created by me. but still if you are into learning how UI/UX is working then go for it.
+> I'm not sure if you should clone it or not since it uses the scraper I created. But if you're interested in learning how UI/UX works, then go for it.
 
 - Clone the moobie repo through terminal.
 
@@ -72,7 +71,7 @@ There is a backend which is scraping a website for the desired details the most 
   - [x] Theme selector.
   - [x] Search functionality.
   - [ ] Resposive hamburger.
-     - As currently there is not much pages due to which i have not yet made it work.
+     - As there are currently not many pages, I have not yet made it work.
 - [ ] Skeleton loader.
   - [x] Skeleton loader for home page.
   - [x] Loader for info page.
@@ -92,4 +91,4 @@ Error may can arise if it does so please do open an issue <a href="https://githu
 
 ## Future plans
 
-After completing this project i will dive into my last project that is in my mind so if you guys do have any idea and want to create something together then do count me in. If i get busy in future i will make this repo an open source so its upto you guys to maintain it 🥺.
+After completing this project, I will dive into my last project that is on my mind. So, if you guys have any ideas and want to create something together, count me in. If I get busy in the future, I will make this repo open source, so it's up to you guys to maintain it 🥺.
