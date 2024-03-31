@@ -33,7 +33,7 @@ There is a backend that is scraping a website for the desired details; most of t
 - Frontend
   - Yellow theming, as I am not a great UI designer, but I still managed to make it look aesthetic and clean with full screen responsiveness.
   - A good-looking landing page for new users to understand briefly why I created Moobie.
-  - I personally love to add the toggle theming from 'dark' to 'light', with the default being 'system'.
+  - I personally love to add the toggle theming from `dark` to `light`, with the default being `system`.
   - I mostly used SSR, which conveniently hides the API calls in the network section. Somehow, I loved this.
 
 
