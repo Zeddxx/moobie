@@ -3,13 +3,18 @@
 import { cn } from "@/lib/utils";
 import { useState } from "react";
 
-const Description = ({ description }: { description: string }) => {
+interface DescriptionProps {
+  description: string;
+  page?: "WATCH" | "NORMAL"
+}
+
+const Description = ({ description, page = "NORMAL" }: DescriptionProps) => {
   const [isToggleMore, setIsToggleMore] = useState<boolean>(false);
   return (
     <>
       <p
         className={cn(
-          "md:line-clamp-none",
+          page === "WATCH" ? "md:line-clamp-5" : "md:line-clamp-none",
           isToggleMore ? "line-clamp-none" : "line-clamp-3"
         )}
       >

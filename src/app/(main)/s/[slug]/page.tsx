@@ -22,7 +22,7 @@ const SearchPage = async ({ params, searchParams }: SearchProps) => {
       <MainWrapper className="px-4 my-4 h-full">
         <h1 className="h3 my-6">
           Bucket empty for{" "}
-          <span className="underline text-primary">
+          <span className="underline text-primary capitalize">
             {slug.split("-").join(" ")}
           </span>
         </h1>
@@ -47,7 +47,7 @@ const SearchPage = async ({ params, searchParams }: SearchProps) => {
       <MainWrapper className="px-4 my-4 h-full">
         <h1 className="h3 my-6">
           Showing search results for{" "}
-          <span className="underline text-primary">
+          <span className="underline text-primary capitalize">
             {slug.split("-").join(" ")}
           </span>
         </h1>
@@ -56,7 +56,7 @@ const SearchPage = async ({ params, searchParams }: SearchProps) => {
             <div className="w-full flex flex-col h-full" key={result.id}>
               <Link
                 className="flex-1 flex-shrink-0 bg-muted min-h-72"
-                href={`/k/info?drama=${result.id}`}
+                href={`/k/${result.id}`}
                 title={result.title}
               >
                 <img
@@ -66,7 +66,7 @@ const SearchPage = async ({ params, searchParams }: SearchProps) => {
                 />
               </Link>
               <Link
-                href={`/k/info?drama=${result.id}`}
+                href={`/k/${result.id}`}
                 className="w-full"
                 title={result.title}
               >

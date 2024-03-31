@@ -12,6 +12,7 @@ import {
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { Metadata, ResolvingMetadata } from "next";
+import Description from "@/components/shared/description";
 
 export type Props = {
   params: { slug: string };
@@ -53,7 +54,6 @@ export async function generateMetadata(
 }
 
 const WatchPage = async ({ params, searchParams }: Props) => {
-
   const { slug } = params;
   const drama = searchParams.drama as string;
   const data = await getDramaStreaming(slug, drama);
@@ -68,7 +68,9 @@ const WatchPage = async ({ params, searchParams }: Props) => {
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
-            <BreadcrumbLink href={`/k/${info?.id}`}>{info?.title}</BreadcrumbLink>
+            <BreadcrumbLink href={`/k/${info?.id}`}>
+              {info?.title}
+            </BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
@@ -110,9 +112,10 @@ const WatchPage = async ({ params, searchParams }: Props) => {
             />
           </div>
           <h1 className="font-logo text-3xl my-2">{info?.title}</h1>
-          <p className="line-clamp-4 text-muted-foreground">
+          {/* <p className="line-clamp-4 text-muted-foreground">
             {info?.description}
-          </p>
+          </p> */}
+          <Description page="WATCH" description={info?.description!} />
         </aside>
       </div>
     </div>
