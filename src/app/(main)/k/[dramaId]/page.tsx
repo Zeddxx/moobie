@@ -9,15 +9,16 @@ import { Metadata, ResolvingMetadata } from "next";
 import Link from "next/link";
 
 type Props = {
+  params: { dramaId: string };
   searchParams: { [key: string]: string | string[] | undefined };
 };
 
 export async function generateMetadata(
-  { searchParams }: Props,
+  { searchParams, params }: Props,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
   try {
-    const dramaId = searchParams.drama as string;
+    const { dramaId } = params;
     const info = await getDramaInfo(dramaId);
 
     if (!info) throw new Error("Drama info not found");
@@ -38,10 +39,9 @@ export async function generateMetadata(
   }
 }
 
-// /k/info?drama=dramaId
-const DramaInfoPage = async ({ searchParams }: Props) => {
-  const dramaId = searchParams.drama as string;
-
+// /k/dramaId
+const DramaInfoPage = async ({ searchParams, params }: Props) => {
+  const { dramaId } = params;
   const data = await getDramaInfo(dramaId);
 
   return (
@@ -70,6 +70,7 @@ const DramaInfoPage = async ({ searchParams }: Props) => {
         <div className="px-4 my-4">
           <div className="flex gap-3">
             <Badge>Release: {data?.releaseDate}</Badge>
+            <Badge>Status: {data?.status}</Badge>
           </div>
           <h1 className="font-logo text-[clamp(1.4rem,8vw,3rem)]">
             {data?.title}{" "}
@@ -80,21 +81,34 @@ const DramaInfoPage = async ({ searchParams }: Props) => {
           <Button className="font-logo mt-2 sm:max-w-sm w-full">
             {!!data && data.episodes.length > 0 ? (
               <Link
+                scroll={false}
                 href={`/watch/${data?.episodes[0]?.id}?drama=${data?.id}`}
                 className="truncate"
               >
                 Watch {data?.title}
               </Link>
             ) : (
-              <Link href="/" className="line-clamp-1">
+              <Link scroll={false} href="/" className="line-clamp-1">
                 No Episodes Available Yet!
               </Link>
             )}
           </Button>
         </div>
 
+        {/* MAPING ALL GENRES */}
+        <div className="px-4 mb-4">
+          <h2 className="h3">Genre&apos;s</h2>
+          <p className="inline">
+            {data?.genres.map((genre) => (
+              <span className="text-muted-foreground" key={genre}>
+                {genre}{", "}
+              </span>
+            ))}
+          </p>
+        </div>
+
         <div className="px-4">
-          <h2 className="h3">Other Names:</h2>
+          <h3 className="h3">Other Names:</h3>
           <p className="inline">
             {data?.otherNames?.map((name: string) => (
               <span key={name} className="text-muted-foreground">

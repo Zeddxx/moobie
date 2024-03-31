@@ -2,6 +2,8 @@ export type DramaInfoTypes = {
     id: string;
     title: string;
     image: string;
+    genres: string[]
+    status: string
     otherNames: string[];
     description: string;
     releaseDate: string;
@@ -55,6 +57,8 @@ export type DramaInfoTypes = {
   export type DramaInfo = {
     title: string;
     id: string;
+    genres: string[]
+    status: string
     type: string;
     time: string;
     episode: string;

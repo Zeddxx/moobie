@@ -3,7 +3,7 @@
 import artplayerPluginHlsQuality from "artplayer-plugin-hls-quality";
 import Hls from "hls.js";
 import ArtPlayer from "artplayer";
-import Player from "./player";
+import Player from "@/components/moobie-player/player";
 import Option from "artplayer/types/option";
 
 type VideoPlayerProps = {

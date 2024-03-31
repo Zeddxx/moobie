@@ -30,15 +30,15 @@ export async function generateMetadata(
     if (!dramaInfo) throw new Error("Drama info is null");
 
     const { title: dramaTitle, episodes, image, description } = dramaInfo;
-    const currentEpisodeTitle = episodes.find((ep) => ep.id === slug)?.title.replace("Episode", "");
+    const currentEpisodeTitle = episodes
+      .find((ep) => ep.id === slug)
+      ?.title.replace("Episode", "");
 
     const title = `Watching ${dramaTitle} | Episode ${currentEpisodeTitle} on moobie.`;
 
     return {
       title,
-      description: `Watching episode ${currentEpisodeTitle} from ${dramaTitle}. ${
-        description
-      }`,
+      description: `Watching episode ${currentEpisodeTitle} from ${dramaTitle}. ${description}`,
       openGraph: {
         images: [image],
       },
@@ -53,10 +53,10 @@ export async function generateMetadata(
 }
 
 const WatchPage = async ({ params, searchParams }: Props) => {
+
   const { slug } = params;
   const drama = searchParams.drama as string;
-  const dramaId = drama.replace("drama-detail/", "");
-  const data = await getDramaStreaming(slug, dramaId);
+  const data = await getDramaStreaming(slug, drama);
   const info = await getDramaInfo(drama);
 
   return (
@@ -68,11 +68,7 @@ const WatchPage = async ({ params, searchParams }: Props) => {
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
-            <BreadcrumbLink
-              href={`/${info?.title.toLowerCase().split(" ").join("-")}`}
-            >
-              {info?.title}
-            </BreadcrumbLink>
+            <BreadcrumbLink href={`/k/${info?.id}`}>{info?.title}</BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>

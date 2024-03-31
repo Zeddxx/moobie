@@ -80,7 +80,7 @@ export const MovieCarousel = ({ items }: MovieCarouselProps) => {
             </h1>
             <Link
               onClick={(e) => e.stopPropagation()}
-              href={`/k/info?drama=${item?.id}`}
+              href={`/k/${item?.id}`}
               className={cn(
                 "line-clamp-1 flex items-center",
                 buttonVariants({ variant: "default" })

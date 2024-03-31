@@ -18,7 +18,7 @@ const RecentlyUpdated = ({ recentDrama }: Props) => {
             key={recent.id + index}
             className="h-full flex-shrink-0"
           >
-            <Link title={recent.title} href={`/k/info?drama=${recent?.id}`}>
+            <Link title={recent.title} href={`/k/${recent?.id}`}>
               <div className="aspect-[9/13] rounded-lg overflow-hidden relative h-full flex-shrink-0 md:w-56 w-48">
                 <Badge className="absolute left-2 top-2" variant="secondary">
                   {recent.episode}
@@ -37,7 +37,7 @@ const RecentlyUpdated = ({ recentDrama }: Props) => {
             </Link>
             <div className="w-max truncate mt-1.5">
               <h4 className="font-logo hover:text-primary duration-300 transition-colors text-xl md:w-56 w-48 truncate">
-                <Link href={`/k/info?drama=${recent?.id}`} title={recent.title}>
+                <Link href={`/k/${recent?.id}`} title={recent.title}>
                   {recent.title}
                 </Link>
               </h4>
