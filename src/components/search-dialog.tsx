@@ -13,10 +13,11 @@ import { Button } from "./ui/button";
 import { Search } from "lucide-react";
 import { Input } from "./ui/input";
 import { useState } from "react";
+import TooltipContainer from "./shared/tooltip-container";
 
 const SearchDialog = () => {
   const [query, setQuery] = useState<string>("");
-  
+
   // SENDING TO SEARCH ROUTE WITH THE QUERY
   const handleSearch = () => {
     const constructedURI = query.split(" ").join("-");
@@ -27,7 +28,9 @@ const SearchDialog = () => {
     <Dialog>
       <DialogTrigger asChild>
         <Button size="icon" variant="ghost">
-          <Search />
+          <TooltipContainer align="end" content="Search your drama?">
+            <Search />
+          </TooltipContainer>
         </Button>
       </DialogTrigger>
       <DialogContent>
@@ -42,11 +45,11 @@ const SearchDialog = () => {
         </DialogHeader>
         <div className="">
           <Input
-          onKeyDown={(e) => {
-            if(e.key === "Enter") {
-              handleSearch()
-            }
-          }}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                handleSearch();
+              }
+            }}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Searched drama..."
           />

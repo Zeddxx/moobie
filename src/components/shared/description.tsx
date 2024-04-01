@@ -14,6 +14,7 @@ const Description = ({ description, page = "NORMAL" }: DescriptionProps) => {
     <>
       <p
         className={cn(
+          "text-pretty",
           page === "WATCH" ? "md:line-clamp-5" : "md:line-clamp-none",
           isToggleMore ? "line-clamp-none" : "line-clamp-3"
         )}

@@ -16,30 +16,32 @@ const SearchPage = async ({ params, searchParams }: SearchProps) => {
 
   const data = await getSearchedDrama(decodedQuery, page);
 
-  if(data.results.length === 0) {
+  if (data.results.length === 0) {
     return (
-        <section>
-      <MainWrapper className="px-4 my-4 h-full">
-        <h1 className="h3 my-6">
-          Bucket empty for{" "}
-          <span className="underline text-primary capitalize">
-            {slug.split("-").join(" ")}
-          </span>
-        </h1>
-        
-        <div className="flex flex-col items-center min-h-[calc(100dvh-230px)] justify-center w-full">
+      <section>
+        <MainWrapper className="px-4 my-4 h-full">
+          <h1 className="h3 my-6">
+            Bucket empty for{" "}
+            <span className="underline text-primary capitalize">
+              {slug.split("-").join(" ")}
+            </span>
+          </h1>
+
+          <div className="flex flex-col items-center min-h-[calc(100dvh-230px)] justify-center w-full">
             <Image
-            src="/assets/images/empty.png"
-            alt="No Results Found Image"
-            draggable={false}
-            width={320}
-            height={320}
+              src="/assets/images/empty.png"
+              alt="No Results Found Image"
+              draggable={false}
+              width={320}
+              height={320}
             />
-            <h2 className="font-logo h3 text-center">No Searched Results In Our Bucket.</h2>
-        </div>
-      </MainWrapper>
-    </section>
-    )
+            <h2 className="font-logo h3 text-center">
+              No Searched Results In Our Bucket.
+            </h2>
+          </div>
+        </MainWrapper>
+      </section>
+    );
   }
 
   return (
@@ -70,11 +72,9 @@ const SearchPage = async ({ params, searchParams }: SearchProps) => {
                 className="w-full"
                 title={result.title}
               >
-               <h2
-               className="font-logo leading-relaxed mt-1 text-lg text-muted-foreground duration-200 transition-colors truncate hover:text-black dark:hover:text-white tracking-wide"
-               >
-               {result.title}
-               </h2>
+                <h2 className="font-logo leading-relaxed mt-1 text-lg text-muted-foreground duration-200 transition-colors truncate hover:text-black dark:hover:text-white tracking-wide">
+                  {result.title}
+                </h2>
               </Link>
             </div>
           ))}

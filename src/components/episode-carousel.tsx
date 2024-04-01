@@ -3,6 +3,7 @@ import { Episode } from "@/types";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import Link from "next/link";
 import { Badge } from "./ui/badge";
+import { parseDate } from "@/lib/utils";
 
 type Props = {
   episodes: Episode[];
@@ -26,7 +27,7 @@ const EpisodeCarousel = ({ episodes, image, dramaId }: Props) => {
               <h4 className="font-logo text-xl">{episode.title}</h4>
               <p className="text-sm capitalize">{episode.subType}</p>
             </div>
-            <Badge className="absolute top-2 left-2 z-10">{episode.releaseDate}</Badge>
+            <Badge variant="secondary" className="absolute top-2 left-2 z-10">{parseDate(episode.releaseDate)}</Badge>
             <img
               draggable={false}
               src={image}

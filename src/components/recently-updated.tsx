@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ScrollArea, ScrollBar } from "./ui/scroll-area";
 import { RecentDramaProps } from "@/types";
 import { Badge } from "./ui/badge";
+import { parseDate } from "@/lib/utils";
 
 interface Props {
   recentDrama: RecentDramaProps[];
@@ -30,7 +31,7 @@ const RecentlyUpdated = ({ recentDrama }: Props) => {
                   className="h-full w-full object-cover flex-shrink-0"
                 />
                 <p className="text-muted-foreground text-sm absolute bottom-2 left-2 z-10">
-                  {recent.time}
+                  {parseDate(recent.time)}
                 </p>
                 <span className="absolute bottom-0 h-44 w-full left-0 bg-gradient-to-t from-white dark:from-black via-transparent to-transparent"></span>
               </div>

@@ -43,3 +43,20 @@ export function generateMetadata({
     },
   };
 }
+
+export function parseDate(dateString: string) {
+  const dateFormatRegex = /^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}$/;
+  if(dateFormatRegex.test(dateString)) {
+    const date = new Date(dateString);
+    const formatedDate = date.toLocaleString("en-US", {
+      day: "2-digit",
+      month: "short",
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: true
+    });
+    return formatedDate;
+  }else {
+    return dateString;
+  }
+}

@@ -6,10 +6,11 @@ import MainWrapper from "@/components/containers/main-wrapper";
 import { Icons } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { MenuIcon, } from "lucide-react";
+import { MenuIcon } from "lucide-react";
 import { useScrollMonitor } from "@/hooks/use-scroll-monitor";
 import SearchDialog from "@/components/search-dialog";
 import ToggleTheme from "@/components/theme-mode";
+import TooltipContainer from "../shared/tooltip-container";
 
 interface Props {
   type?: "MAIN" | "INNER";
@@ -29,10 +30,12 @@ const MainNavbar = ({ type = "MAIN" }: Props) => {
       <MainWrapper className="flex items-center w-full justify-between px-4 h-16">
         {/* MAIN MOOBIE LOGO */}
         <div className="flex items-center ">
-          <Link href="/home">
+          <TooltipContainer align="start" content="Moobie Home?">
+          <Link role="link" href="/home">
             <Icons.moobieIcon className="sm:block hidden h-8 w-32 dark:invert" />
             <Icons.moobieIconMobile className="h-8 w-8 cursor-pointer block sm:hidden dark:invert" />
           </Link>
+          </TooltipContainer>
         </div>
 
         <div className="flex items-center gap-x-2">
@@ -43,8 +46,16 @@ const MainNavbar = ({ type = "MAIN" }: Props) => {
           <SearchDialog />
 
           {/* HAMBURGER BUTTON */}
-          <Button className="w-52 md:block hidden">Login</Button>
-          <Button size="icon" className="md:hidden flex" variant="ghost">
+          <Button role="button" className="w-52 md:block hidden">
+            Login
+          </Button>
+          <Button
+            aria-label=""
+            role="button"
+            size="icon"
+            className="md:hidden flex"
+            variant="ghost"
+          >
             <MenuIcon className="h-7 w-7" />
           </Button>
         </div>

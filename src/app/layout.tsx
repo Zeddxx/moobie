@@ -5,13 +5,17 @@ import "./globals.css";
 import MainNavbar from "@/components/navbars/main-navbar";
 import Footer from "@/components/footer";
 import ThemeProvider from "@/providers/theme-provider";
+import NavigateToTop from "@/components/shared/navigate-to-top";
 
 const inter = Inter({ subsets: ["latin"] });
+
 const logoFont = localFont({
   src: "../../public/fonts/logo/Logo_Semibold.ttf",
   variable: "--font-logo",
   weight: "600",
 });
+
+
 export const metadata: Metadata = {
   title: "Moobie | Watch Movies Online.",
   description: "Browse a different collection of movies only on Moobie.",
@@ -45,6 +49,9 @@ export default function RootLayout({
           <footer>
             <Footer />
           </footer>
+
+          {/* TO TOP BUTTON */}
+          <NavigateToTop />
         </ThemeProvider>
       </body>
     </html>
