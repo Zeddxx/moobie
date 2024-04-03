@@ -1,4 +1,4 @@
-<img src="/public/assets/images/banner.png" alt="moobie banner" width="430" />
+<img src="/public/assets/images/banner.jpeg" alt="moobie banner" width="430" />
 
 <div align="center">
   <img src="/public/assets/logos/moobie-light.svg" width="280" alt="moobie logo" align="center" />
