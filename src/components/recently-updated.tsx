@@ -1,8 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
-import { ScrollArea, ScrollBar } from "./ui/scroll-area";
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { RecentDramaProps } from "@/types";
-import { Badge } from "./ui/badge";
+import { Badge } from "@/components/ui/badge";
 import { parseDate } from "@/lib/utils";
 
 interface Props {
@@ -13,7 +13,7 @@ const RecentlyUpdated = ({ recentDrama }: Props) => {
   return (
     <ScrollArea className="w-full whitespace-nowrap">
       <div className="flex w-max space-x-4 py-4">
-        {recentDrama.map((recent, index) => (
+        {recentDrama?.map((recent, index) => (
           <div
             draggable={false}
             key={recent.id + index}
@@ -28,6 +28,7 @@ const RecentlyUpdated = ({ recentDrama }: Props) => {
                   draggable={false}
                   src={recent.poster}
                   alt={recent.title}
+                  loading="lazy"
                   className="h-full w-full object-cover flex-shrink-0"
                 />
                 <p className="text-muted-foreground text-sm absolute bottom-2 left-2 z-10">

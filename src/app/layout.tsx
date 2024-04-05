@@ -46,6 +46,8 @@ export default function RootLayout({
         <ThemeProvider>
           <MainNavbar />
           <main className="min-h-[calc(100dvh-80px)] h-full">{children}</main>
+
+          {/* MAIN FOOTER */}
           <footer>
             <Footer />
           </footer>

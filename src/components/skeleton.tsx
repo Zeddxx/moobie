@@ -5,7 +5,11 @@ import { useTheme } from "next-themes";
 import ReactSkeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 
-const Skeleton = ({ className }: { className: string }) => {
+interface SkeletonProps {
+  className: string;
+}
+
+const Skeleton = ({ className }: SkeletonProps) => {
   const { theme } = useTheme();
 
   return (
@@ -14,7 +18,8 @@ const Skeleton = ({ className }: { className: string }) => {
       highlightColor={theme === "dark" ? "#444" : "#f5f5f5"}
     >
       <ReactSkeleton
-      className={cn(className, "dar")} />
+        className={cn(className)}
+      />
     </SkeletonTheme>
   );
 };

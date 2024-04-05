@@ -22,20 +22,36 @@ const LogsModal = () => {
   }, []);
 
   return (
-    <Dialog open={isDialogOpen} onOpenChange={() => setIsDialogOpen(false)}>
+    <Dialog open={true} onOpenChange={() => setIsDialogOpen(false)}>
       <DialogTrigger className="hidden"></DialogTrigger>
       <DialogContent>
         <DialogHeader>
           <DialogTitle>
-            <h1 className="text-[clamp(1.3rem,6vw,1.6rem)] font-logo">
+            <span className="text-[clamp(1.3rem,6vw,1.6rem)] font-logo">
               Welcome to moobie ❤️!
-            </h1>
+            </span>
           </DialogTitle>
           <DialogDescription>What&apos;s new in moobie v1.</DialogDescription>
         </DialogHeader>
 
         <div className="">
-          <h2 className="text-lg font-logo">1. New Features.</h2>
+          <h2 className="text-lg font-logo">1. Currently Underconstruction.</h2>
+          <ul className="pl-7">
+            <li className="list-disc">
+              <p className="text-sm">
+                Authentication.
+              </p>
+            </li>
+            <li className="list-disc">
+              <p className="text-sm">
+                Menu button functionality for mobiles.
+              </p>
+            </li>
+          </ul>
+
+
+          {/* V1.0.0 */}
+          {/* <h2 className="text-lg font-logo">1. New Features.</h2>
           <ul className="pl-7">
             <li className="list-disc">
               <p className="text-sm">
@@ -62,9 +78,19 @@ const LogsModal = () => {
                 Tooltip for the buttons and links (hover any button).
               </p>
             </li>
+          </ul> */}
+
+<h2 className="text-lg font-logo mt-2">2. Fixes bugs.</h2>
+          <ul className="pl-7">
+            <li className="list-disc">
+              <p className="text-sm">Fixed SEO Metadata.</p>
+            </li>
+            <li className="list-disc">
+              <p className="text-sm">Fixed loading carousel rounded for homepage (changed to 0px).</p>
+            </li>
           </ul>
 
-          <h2 className="text-lg font-logo mt-2">2. Fixes bugs.</h2>
+          {/* <h2 className="text-lg font-logo mt-2">2. Fixes bugs.</h2>
           <ul className="pl-7">
             <li className="list-disc">
               <p className="text-sm">Fixed SEO for all the pages.</p>
@@ -77,7 +103,7 @@ const LogsModal = () => {
                 Fixed format of date from recents and details page.
               </p>
             </li>
-          </ul>
+          </ul> */}
         </div>
       </DialogContent>
     </Dialog>

@@ -6,7 +6,7 @@ export default function loading() {
   return (
     <div className="">
       <MainWrapper>
-        <Skeleton className="min-h-80 max-h-[580px] h-[50vw] w-screen" />
+        <Skeleton className="min-h-80 max-h-[580px] h-[50vw] w-screen !rounded-none" />
 
         <div className="my-6 px-4">
           <h2 className="font-logo h3">Recently Updated</h2>

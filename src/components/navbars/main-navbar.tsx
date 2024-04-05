@@ -4,7 +4,7 @@ import Link from "next/link";
 
 import MainWrapper from "@/components/containers/main-wrapper";
 import { Icons } from "@/components/icons";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { MenuIcon } from "lucide-react";
 import { useScrollMonitor } from "@/hooks/use-scroll-monitor";
@@ -31,10 +31,10 @@ const MainNavbar = ({ type = "MAIN" }: Props) => {
         {/* MAIN MOOBIE LOGO */}
         <div className="flex items-center ">
           <TooltipContainer align="start" content="Moobie Home?">
-          <Link role="link" href="/home">
-            <Icons.moobieIcon className="sm:block hidden h-8 w-32 dark:invert" />
-            <Icons.moobieIconMobile className="h-8 w-8 cursor-pointer block sm:hidden dark:invert" />
-          </Link>
+            <Link role="link" href="/home">
+              <Icons.moobieIcon className="sm:block hidden h-8 w-32 dark:invert" />
+              <Icons.moobieIconMobile className="h-8 w-8 cursor-pointer block sm:hidden dark:invert" />
+            </Link>
           </TooltipContainer>
         </div>
 
@@ -45,10 +45,10 @@ const MainNavbar = ({ type = "MAIN" }: Props) => {
           {/* SEARCH DIALOG TOGGLE BUTTON */}
           <SearchDialog />
 
+          {/* NAVIGATE TO LOGIN */}
+          <Link href="/login" className={buttonVariants({ className: "w-52 md:block hidden text-center"})}>Login</Link>
+
           {/* HAMBURGER BUTTON */}
-          <Button role="button" className="w-52 md:block hidden">
-            Login
-          </Button>
           <Button
             aria-label=""
             role="button"

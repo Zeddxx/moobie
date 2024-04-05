@@ -16,7 +16,7 @@ export function absoluteUrl(path: string) {
 export function generateMetadata({
   title,
   description,
-  opengraphImage = "http://localhost:3000/opengraph-image.png",
+  opengraphImage = absoluteUrl("/opengraph-image.png"),
 }: GenerateMetadataProps): Metadata {
   return {
     title,
@@ -25,7 +25,7 @@ export function generateMetadata({
       title,
       description,
       type: "website",
-      url: "http://localhost:3000/home",
+      url: absoluteUrl("/home"),
       images: [
         {
           url: opengraphImage,
