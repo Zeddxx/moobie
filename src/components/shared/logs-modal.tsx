@@ -22,7 +22,7 @@ const LogsModal = () => {
   }, []);
 
   return (
-    <Dialog open={true} onOpenChange={() => setIsDialogOpen(false)}>
+    <Dialog open={isDialogOpen} onOpenChange={() => setIsDialogOpen(false)}>
       <DialogTrigger className="hidden"></DialogTrigger>
       <DialogContent>
         <DialogHeader>
