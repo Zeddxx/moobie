@@ -1,3 +1,5 @@
+<img src="/public/assets/images/banner.jpeg" alt="moobie banner" width="full" />
+
 <div align="center">
   <img src="/public/assets/logos/moobie-light.svg" width="280" alt="moobie logo" align="center" />
    <p>Welcome to moobie codebase, i guess you liked the project?</p>
