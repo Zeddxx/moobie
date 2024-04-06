@@ -4,9 +4,9 @@ import { Icons } from "./icons";
 
 const Footer = () => {
   return (
-    <div className="h-max border-t dark:border-t-muted w-full bg-muted">
+    <div className="h-max border-t dark:border-t-muted w-full dark:bg-stone-950">
       <MainWrapper className="h-full py-4 px-4">
-        <div className="flex items-center justify-between">
+        <div className="flex sm:flex-row flex-col items-center justify-between">
           <div className="">
             <div className="flex items-center">
               <Link href="/home">
@@ -15,7 +15,7 @@ const Footer = () => {
             </div>
 
             <div className="">
-              <p className="text-muted-foreground text-xs">Made with ❤️</p>
+              <p className="text-muted-foreground sm:text-start text-center text-xs">Made with ❤️</p>
             </div>
           </div>
 

@@ -1,8 +1,15 @@
-import LoginForm from "@/components/auth/login-form";
 import CardWrapper from "@/components/card-wrapper";
 import MainWrapper from "@/components/containers/main-wrapper";
-import { Input } from "@/components/ui/input";
-import Image from "next/image";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Moobie | Login.",
+  description:
+    "Login to moobie to unlocks new features which unauthenticated user don't have.",
+  openGraph: {
+    images: ["/assets/logos/moobie-dark.svg"],
+  },
+};
 
 const LoginPage = () => {
   return (
@@ -11,10 +18,9 @@ const LoginPage = () => {
         <CardWrapper
           image="/assets/images/welcome.png"
           heading="Welcome!"
+          social={true}
           description="Watch your favorite Korean Dramas or movies without any ads."
-        >
-          <LoginForm />
-        </CardWrapper>
+        />
       </MainWrapper>
     </section>
   );

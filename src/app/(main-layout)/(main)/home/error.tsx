@@ -31,9 +31,12 @@ export default function Error({
           <h2 className="h3 text-center">Something went wrong!</h2>
           <p className="text-muted-foreground mb-4 text-center">
             This application is on development so errors may occured. if error
-            is consistent please contact the developer.
+            is consistent please contact the developer (Try to restart this
+            page).
           </p>
-          <Button className="w-full" onClick={() => reset()}>Try again</Button>
+          <Button className="w-full" onClick={() => reset()}>
+            Try again
+          </Button>
         </div>
       </MainWrapper>
     </section>

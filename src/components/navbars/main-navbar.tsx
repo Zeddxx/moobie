@@ -10,7 +10,9 @@ import { MenuIcon } from "lucide-react";
 import { useScrollMonitor } from "@/hooks/use-scroll-monitor";
 import SearchDialog from "@/components/search-dialog";
 import ToggleTheme from "@/components/theme-mode";
-import TooltipContainer from "../shared/tooltip-container";
+import TooltipContainer from "@/components/shared/tooltip-container";
+import { useContext } from "react";
+import { Context } from "@/contexts/utilities";
 
 interface Props {
   type?: "MAIN" | "INNER";
@@ -18,6 +20,8 @@ interface Props {
 
 const MainNavbar = ({ type = "MAIN" }: Props) => {
   const { isScrolled } = useScrollMonitor();
+
+  const { handleToggleMenu, isToggled } = useContext(Context)
 
   return (
     <nav
@@ -29,8 +33,8 @@ const MainNavbar = ({ type = "MAIN" }: Props) => {
     >
       <MainWrapper className="flex items-center w-full justify-between px-4 h-16">
         {/* MAIN MOOBIE LOGO */}
-        <div className="flex items-center ">
-          <TooltipContainer align="start" content="Moobie Home?">
+        <div className="flex items-center gap-x-2">
+          <TooltipContainer align="start" content="Moobie.">
             <Link role="link" href="/home">
               <Icons.moobieIcon className="sm:block hidden h-8 w-32 dark:invert" />
               <Icons.moobieIconMobile className="h-8 w-8 cursor-pointer block sm:hidden dark:invert" />
@@ -46,15 +50,21 @@ const MainNavbar = ({ type = "MAIN" }: Props) => {
           <SearchDialog />
 
           {/* NAVIGATE TO LOGIN */}
-          <Link href="/login" className={buttonVariants({ className: "w-52 md:block hidden text-center"})}>Login</Link>
+          <Link
+            href="/login"
+            className={buttonVariants({
+              className: "w-52 md:block hidden text-center",
+            })}
+          >
+            Login
+          </Link>
 
           {/* HAMBURGER BUTTON */}
           <Button
-            aria-label=""
-            role="button"
             size="icon"
             className="md:hidden flex"
             variant="ghost"
+            onClick={handleToggleMenu}
           >
             <MenuIcon className="h-7 w-7" />
           </Button>
