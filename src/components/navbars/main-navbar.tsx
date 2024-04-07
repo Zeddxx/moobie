@@ -21,12 +21,12 @@ interface Props {
 const MainNavbar = ({ type = "MAIN" }: Props) => {
   const { isScrolled } = useScrollMonitor();
 
-  const { handleToggleMenu, isToggled } = useContext(Context)
+  const { handleToggleMenu } = useContext(Context);
 
   return (
     <nav
       className={cn(
-        "h-auto sticky top-0 bg-white dark:bg-black",
+        "h-auto bg-white dark:bg-black",
         type === "MAIN" ? "z-20" : "z-10",
         isScrolled ? "border-b dark:border-b-muted" : ""
       )}
@@ -50,14 +50,16 @@ const MainNavbar = ({ type = "MAIN" }: Props) => {
           <SearchDialog />
 
           {/* NAVIGATE TO LOGIN */}
-          <Link
-            href="/login"
-            className={buttonVariants({
-              className: "w-52 md:block hidden text-center",
-            })}
-          >
-            Login
-          </Link>
+          <TooltipContainer align="center" content="Login with your account.">
+            <Link
+              href="/login"
+              className={buttonVariants({
+                className: "w-52 md:block hidden text-center",
+              })}
+            >
+              Login
+            </Link>
+          </TooltipContainer>
 
           {/* HAMBURGER BUTTON */}
           <Button

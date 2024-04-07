@@ -1,5 +1,5 @@
 import type { Config } from "tailwindcss";
-import plugin from "tailwindcss/plugin"
+import plugin from "tailwindcss/plugin";
 
 const config = {
   darkMode: ["class"],
@@ -83,16 +83,14 @@ const config = {
     plugin(function ({ addBase, addComponents }) {
       addBase({});
       addComponents({
-        ".h3" : {
-          "@apply font-logo text-[clamp(1.6rem,5vw,2rem)]":
-          {},
+        ".h3": {
+          "@apply font-logo font-semibold text-[clamp(1.6rem,5vw,2rem)]": {},
         },
         ".h2": {
-          "@apply font-logo text-[clamp(2rem,8vw,3.4rem)]":
-          {},
-        }
-      })
-    })
+          "@apply font-logo font-semibold text-[clamp(2rem,8vw,3.4rem)]": {},
+        },
+      });
+    }),
   ],
 } satisfies Config;
 

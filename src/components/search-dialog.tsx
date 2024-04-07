@@ -26,12 +26,12 @@ const SearchDialog = () => {
 
   return (
     <Dialog>
-      <DialogTrigger asChild>
-        <Button size="icon" variant="ghost">
-          <TooltipContainer align="end" content="Search your drama?">
+      <DialogTrigger>
+        <TooltipContainer align="end" content="Search your drama?">
+          <Button size="icon" variant="ghost">
             <Search />
-          </TooltipContainer>
-        </Button>
+          </Button>
+        </TooltipContainer>
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>

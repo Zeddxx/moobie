@@ -1,5 +1,6 @@
 import Footer from "@/components/footer";
 import MainNavbar from "@/components/navbars/main-navbar";
+import MobileMenu from "@/components/navbars/mobile-menu";
 import NavigateToTop from "@/components/shared/navigate-to-top";
 
 export default function MainRootLayout({
@@ -9,10 +10,14 @@ export default function MainRootLayout({
 }) {
   return (
     <main className="min-h-[calc(100dvh-80px)]">
-      {/* <section className="w-full h-full"> */}
-      <MainNavbar />
-      {children}
 
+      {/* MAIN NAVBAR */}
+      <header className="sticky top-0 z-20">
+        <MainNavbar />
+      </header>
+
+    
+      {children}
       {/* MAIN FOOTER */}
       <footer>
         <Footer />
@@ -20,9 +25,8 @@ export default function MainRootLayout({
 
       {/* TO TOP BUTTON */}
       <NavigateToTop />
-      {/* </section> */}
-      {/* 
-      <MobileMenu /> */}
+      
+      <MobileMenu />
     </main>
   );
 }

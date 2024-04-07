@@ -6,24 +6,27 @@ import Image from "next/image";
 import Link from "next/link";
 
 import LogsModal from "@/components/shared/logs-modal";
+import TooltipContainer from "@/components/shared/tooltip-container";
 
 const MarketingPage = () => {
   return (
     <section className="">
       <MainWrapper className="flex items-center relative justify-center px-4 h-[calc(100dvh-180px)]">
         <div className="text-center">
-          <h1 className="font-logo text-[clamp(2.4rem,8vw,4.8rem)]">
+          <h1 className="font-logo font-semibold text-[clamp(2.4rem,8vw,4.8rem)]">
             Welcome to Moobie Watch.
           </h1>
-          <p className="text-center max-w-2xl mx-auto text-muted-foreground">
+          <p className="text-center text-pretty max-w-2xl mx-auto text-muted-foreground">
             Enjoy your favorite Korean dramas without any annoying ads or
             pop-ups, and all without requiring a subscription.
           </p>
+          <TooltipContainer align="center" content="Navigate Moobie Home?">
           <Button asChild className="w-full max-w-xl mx-auto mt-4">
-            <Link href="/home" title="Moobie Home">
+            <Link href="/home">
               Watch KDrama?
             </Link>
           </Button>
+          </TooltipContainer>
         </div>
       </MainWrapper>
 
@@ -39,7 +42,7 @@ const MarketingPage = () => {
                 <Icons.moobieIconMobile className="sm:w-44 w-24 opacity-15 dark:invert sm:h-44 h-24" />
               </div>
 
-              <h2 className="text-[clamp(.8rem,8vw,1.5rem)] px-4 my-3 font-logo">
+              <h2 className="text-[clamp(.8rem,8vw,1.5rem)] px-4 my-3 font-logo h3">
                 Recently Updated.
               </h2>
               <div className="flex px-4 flex-nowrap gap-x-4 w-full overflow-hidden">

@@ -6,13 +6,30 @@ import ThemeProvider from "@/providers/theme-provider";
 import { ContextProvider } from "@/contexts/utilities";
 
 // Inter as base font
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({
+  subsets: ["latin"],
+});
 
 // Custom local font for professionalism.
 const logoFont = localFont({
-  src: "../../public/fonts/logo/Logo_Semibold.ttf",
+  src: [
+    {
+      path: "../../public/fonts/logo/Logo_Semibold.ttf",
+      weight: "600",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/regular-font.otf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/medium.otf",
+      weight: "500",
+      style: "normal",
+    },
+  ],
   variable: "--font-logo",
-  weight: "600",
 });
 
 // Generating Parent metadata using inbuilt nextjs function.
@@ -42,7 +59,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.className} ${logoFont.variable} antialiased`}>
+      <body
+        className={`${inter.className} ${logoFont.variable} antialiased`}
+      >
         <ContextProvider>
           <ThemeProvider>{children}</ThemeProvider>
         </ContextProvider>

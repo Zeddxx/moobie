@@ -1,6 +1,7 @@
 "use client";
 
-import { createContext, useState } from "react";
+import { usePathname } from "next/navigation";
+import { createContext, useEffect, useState } from "react";
 
 type INITIAL_STATE_TYPES = {
   isToggled: boolean;
@@ -20,10 +21,39 @@ export const ContextProvider = ({
   children: React.ReactNode;
 }) => {
   const [toggleMenu, setToggleMenu] = useState<boolean>(false);
+  const pathname = usePathname()
 
   const handleToggleMenu = () => {
     setToggleMenu(!toggleMenu);
   };
+
+  useEffect(() => {
+    setToggleMenu(false)
+  }, [pathname])
+
+  useEffect(() => {
+    const handleMenuDesktop = () => {
+      if(window.innerWidth > 768) {
+        setToggleMenu(false);
+      }
+    }
+
+    window.addEventListener("resize", handleMenuDesktop);
+
+    return () => {
+      window.removeEventListener("resize", handleMenuDesktop)
+    }
+  }, [])
+
+  useEffect(() => {
+    if(toggleMenu) {
+      document.body.style.overflow = "hidden";
+    }
+
+    return () => {
+      document.body.style.overflow = "auto"
+    }
+  })
 
   return (
     <Context.Provider
