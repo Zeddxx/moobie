@@ -103,7 +103,7 @@ export async function GET(req: Request, res: Response) {
       const id = dramaId.replace("drama-detail/", "");
       return { ...movie, id };
     });
-  
+  // 
     const updatedMoviesWithId = await Promise.all(promises);
     recentMovies.splice(0, recentMovies.length, ...updatedMoviesWithId);
   }
