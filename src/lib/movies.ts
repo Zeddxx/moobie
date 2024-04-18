@@ -13,7 +13,7 @@ const url =
 // Get Home Page Korean Drama Datas
 export const getHomePage = async () => {
   try {
-    const response = await fetch("http://localhost:3000/api/home", {
+    const response = await fetch("https://moobie.vercel.app/api/home", {
       cache: "no-cache",
     });
     const data = await response.json();
