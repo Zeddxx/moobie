@@ -1,7 +1,6 @@
 import MainWrapper from "@/components/containers/main-wrapper";
 import Footer from "@/components/footer";
 import BackButton from "@/components/shared/back-button";
-import TooltipContainer from "@/components/shared/tooltip-container";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

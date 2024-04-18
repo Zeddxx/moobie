@@ -13,7 +13,6 @@ import { Button } from "./ui/button";
 import { Search } from "lucide-react";
 import { Input } from "./ui/input";
 import { useState } from "react";
-import TooltipContainer from "./shared/tooltip-container";
 
 const SearchDialog = () => {
   const [query, setQuery] = useState<string>("");
@@ -27,11 +26,9 @@ const SearchDialog = () => {
   return (
     <Dialog>
       <DialogTrigger>
-        <TooltipContainer align="end" content="Search your drama?">
           <Button size="icon" variant="ghost">
             <Search />
           </Button>
-        </TooltipContainer>
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>

@@ -22,7 +22,6 @@ import { Metadata, ResolvingMetadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
-
 // PROPS
 type Props = {
   params: { dramaId: string };
@@ -130,6 +129,7 @@ const DramaInfoPage = async ({ searchParams, params }: Props) => {
             <Button className="font-logo w-full">
               {episodes.length > 0 ? (
                 <Link
+                  prefetch={false}
                   scroll={false}
                   href={`/watch/${episodes[0].id}?drama=${id}`}
                   className="truncate"
@@ -146,7 +146,7 @@ const DramaInfoPage = async ({ searchParams, params }: Props) => {
             {/* ADD THE DRAMA INTO YOUR WATCH LATER BUCKET */}
             {/* TODO: ADD DRAMA INTO WATCH LIST. */}
             <Button variant="secondary" disabled className="font-logo w-full">
-                <Plus className="mr-2 h-5 w-5" /> Watch Later
+              <Plus className="mr-2 h-5 w-5" /> Watch Later
             </Button>
           </div>
         </div>
@@ -187,7 +187,7 @@ const DramaInfoPage = async ({ searchParams, params }: Props) => {
             </p>
             <div className="relative aspect-square max-w-sm w-full h-auto mx-auto">
               <Image
-              draggable={false}
+                draggable={false}
                 src="/assets/images/no-episode.png"
                 alt="No Episodes Yet! Image of can doing nothing."
                 fill

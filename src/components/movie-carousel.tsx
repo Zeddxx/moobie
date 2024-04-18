@@ -83,6 +83,7 @@ export const MovieCarousel = ({ items }: MovieCarouselProps) => {
           {/* CAROUSEL DRAMA SMALL POSTER */}
           <div className="absolute leading-relaxed max-w-[75%] bottom-6 left-6 z-20">
             <img
+              loading="lazy"
               src={item.poster}
               alt={item.title + " Poster"}
               className="aspect-[9/13] w-36 object-cover md:block hidden rounded-md overflow-hidden shadow-md"
@@ -95,6 +96,7 @@ export const MovieCarousel = ({ items }: MovieCarouselProps) => {
             {/* CAROUSEL CTA BUTTON */}
             <TooltipContainer align="end" content={`Watch ${item.title}`}>
               <Link
+                prefetch={false}
                 onClick={(e) => e.stopPropagation()}
                 href={`/k/${item?.id}`}
                 className={cn(
@@ -113,6 +115,7 @@ export const MovieCarousel = ({ items }: MovieCarouselProps) => {
           {/* MAIN CAROUSEL IMAGE */}
           <div className="absolute w-full right-0 top-0 h-full before:h-full before:w-[60%] before:bg-gradient-to-r before:from-white dark:before:from-black before:to-transparent before:absolute">
             <img
+            
               draggable={false}
               src={item.imageSrc}
               alt={item.title}

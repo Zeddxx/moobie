@@ -16,15 +16,15 @@ const NavigateToTop = () => {
     <div
       className={cn("bottom-6 right-6 z-30", isScrolled ? "fixed" : "hidden")}
     >
-      <Button
-        onClick={handleTop}
-        className="rounded-full h-12 w-12"
-        size="icon"
-      >
-        <TooltipContainer align="end" content="Navigate to top?">
+      <TooltipContainer align="end" content="Navigate to top?">
+        <Button
+          onClick={handleTop}
+          className="rounded-full h-12 w-12"
+          size="icon"
+        >
           <ChevronUp />
-        </TooltipContainer>
-      </Button>
+        </Button>
+      </TooltipContainer>
     </div>
   );
 };

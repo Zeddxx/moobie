@@ -17,7 +17,9 @@ export default function MainRootLayout({
       </header>
 
     
+      <main className="min-h-[calc(100dvh-80px)]">
       {children}
+      </main>
       {/* MAIN FOOTER */}
       <footer>
         <Footer />

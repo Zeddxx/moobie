@@ -1,4 +1,5 @@
 import { GenerateMetadataProps } from "@/types";
+import axios from "axios";
 import { type ClassValue, clsx } from "clsx";
 import type { Metadata } from "next";
 import { twMerge } from "tailwind-merge";
@@ -58,5 +59,21 @@ export function parseDate(dateString: string) {
     return formatedDate;
   }else {
     return dateString;
+  }
+}
+
+export async function scrapeSearchResults(query: string, page: number) {
+  try {
+    const { data } = await axios.get(
+      `https://api-consumet-org-olive.vercel.app/movies/dramacool/${query}?page=${page}`
+    );
+
+    const newData = data.results.map((result: any) => ({
+      ...result,
+      id: result.id.replace("drama-detail/", ""),
+    }));
+    return { ...data, results: newData };
+  } catch (error) {
+    console.log(error);
   }
 }

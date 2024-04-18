@@ -22,7 +22,7 @@ const MarketingPage = () => {
           </p>
           <TooltipContainer align="center" content="Navigate Moobie Home?">
           <Button asChild className="w-full max-w-xl mx-auto mt-4">
-            <Link href="/home">
+            <Link prefetch={false} href="/home">
               Watch KDrama?
             </Link>
           </Button>
