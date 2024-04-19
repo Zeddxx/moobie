@@ -62,10 +62,12 @@ export function parseDate(dateString: string) {
   }
 }
 
+const BASE_URL = process.env.NEXT_PUBLIC_BACKEND_URL
+
 export async function scrapeSearchResults(query: string, page: number) {
   try {
     const { data } = await axios.get(
-      `https://api-consumet-org-olive.vercel.app/movies/dramacool/${query}?page=${page}`
+      `${BASE_URL}/${query}?page=${page}`
     );
 
     const newData = data.results.map((result: any) => ({
