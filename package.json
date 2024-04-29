@@ -26,7 +26,7 @@
     "next": "^14.2.2",
     "next-themes": "^0.3.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react-dom": "^18.3.1",
     "react-loading-skeleton": "^3.4.0",
     "react-simply-carousel": "^9.1.2",
     "tailwind-merge": "^2.2.2",
