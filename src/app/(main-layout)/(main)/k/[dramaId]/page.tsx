@@ -7,10 +7,11 @@ import Description from "@/components/shared/description";
 
 // SHADCN COMPONENTS
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 
 // API FUNCTIONS
 import { getDramaInfo } from "@/lib/movies";
+import { cn } from "@/lib/utils";
 
 // ICONS
 import { Plus } from "lucide-react";
@@ -126,22 +127,20 @@ const DramaInfoPage = async ({ searchParams, params }: Props) => {
           {/* CTA BUTTONS */}
           <div className="grid gap-4 sm:max-w-2xl w-full sm:grid-cols-2">
             {/* CTA BUTTON TO DIVE INTO STREAMING PAGE */}
-            <Button className="font-logo w-full">
               {episodes.length > 0 ? (
                 <Link
                   prefetch={false}
                   scroll={false}
                   href={`/watch/${episodes[0].id}?drama=${id}`}
-                  className="truncate"
+                  className={cn(buttonVariants({ className: "truncate font-logo"}))}
                 >
                   Watch {title}
                 </Link>
               ) : (
-                <Link scroll={false} href="/" className="line-clamp-1">
+                <Link scroll={false} href="/" className={cn(buttonVariants({ className: "truncate font-logo line-clamp-1"}))}>
                   No Episodes Available Yet!
                 </Link>
               )}
-            </Button>
 
             {/* ADD THE DRAMA INTO YOUR WATCH LATER BUCKET */}
             {/* TODO: ADD DRAMA INTO WATCH LIST. */}

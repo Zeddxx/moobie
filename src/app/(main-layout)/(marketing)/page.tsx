@@ -8,7 +8,7 @@ import Link from "next/link";
 import LogsModal from "@/components/shared/logs-modal";
 import TooltipContainer from "@/components/shared/tooltip-container";
 
-const MarketingPage = () => {
+const MarketingPage = async () => {
   return (
     <section className="">
       <MainWrapper className="flex items-center relative justify-center px-4 h-[calc(100dvh-180px)]">

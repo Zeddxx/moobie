@@ -95,8 +95,7 @@ export const MovieCarousel = ({ items }: MovieCarouselProps) => {
 
             {/* CAROUSEL CTA BUTTON */}
             <TooltipContainer align="end" content={`Watch ${item.title}`}>
-              <Link
-                prefetch={false}
+              <a
                 onClick={(e) => e.stopPropagation()}
                 href={`/k/${item?.id}`}
                 className={cn(
@@ -108,7 +107,7 @@ export const MovieCarousel = ({ items }: MovieCarouselProps) => {
                 <span className="sm:max-w-[16rem] max-w-[12rem] truncate block ml-1">
                   {item.title}
                 </span>
-              </Link>
+              </a>
             </TooltipContainer>
           </div>
 
