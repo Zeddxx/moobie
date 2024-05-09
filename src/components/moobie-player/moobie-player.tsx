@@ -44,7 +44,7 @@ const MoobiePlayer = ({ episodeUrl, poster }: VideoPlayerProps) => {
     autoSize: false,
     fastForward: true,
     autoMini: false,
-    screenshot: true,
+    screenshot: false,
     setting: true,
     plugins: [
       artplayerPluginHlsQuality({
@@ -55,7 +55,7 @@ const MoobiePlayer = ({ episodeUrl, poster }: VideoPlayerProps) => {
       }),
     ],
     loop: false,
-    flip: true,
+    // flip: true,
     lock: true,
     playbackRate: true,
     aspectRatio: true,
