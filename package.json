@@ -17,7 +17,7 @@
     "@tailwindcss/line-clamp": "^0.4.4",
     "artplayer": "^5.1.1",
     "artplayer-plugin-hls-quality": "^2.0.0",
-    "axios": "^1.6.8",
+    "axios": "^1.7.7",
     "cheerio": "^1.0.0-rc.12",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
