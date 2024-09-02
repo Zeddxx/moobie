@@ -18,7 +18,7 @@
     "artplayer": "^5.1.1",
     "artplayer-plugin-hls-quality": "^2.0.0",
     "axios": "^1.6.8",
-    "cheerio": "^1.0.0-rc.12",
+    "cheerio": "^1.0.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "hls.js": "^1.5.7",
