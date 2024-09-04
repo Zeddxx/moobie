@@ -39,10 +39,7 @@ There is a backend that is scraping a website for the desired details; most of t
   - I mostly used SSR, which conveniently hides the API calls in the network section. Somehow, I loved this.
 
 
-## Installation.
-> [!IMPORTANT]
-> I'm not sure if you should clone it or not since it uses the scraper I created. But if you're interested in learning how UI/UX works, then go for it.
-
+## Installation
 - Clone the moobie repo through terminal.
 
   ```bash
