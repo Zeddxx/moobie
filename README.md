@@ -87,7 +87,3 @@ There is a backend that is scraping a website for the desired details; most of t
 ## Have an issue?
 
 Error may can arise if it does so please do open an issue <a href="https://github.com/Zeddxx/moobie/issues" title="moobie issue">here.</a> I will probably get in touch within 5 - 6hrs.
-
-## Future plans
-
-After completing this project, I will dive into my last project that is on my mind. So, if you guys have any ideas and want to create something together, count me in. If I get busy in the future, I will make this repo open source, so it's up to you guys to maintain it 🥺.
